@@ -39,9 +39,24 @@ file { '/home/git/repos/nicesky.git':
     require => User['git'],
 }
 
-exec { 'git init --bare':
+exec { 'init nicesky repo':
+    command => 'git init --bare',
     cwd => '/home/git/repos/nicesky.git',
     creates => '/home/git/repos/nicesky.git/config',
     user => 'git',
     require => File['/home/git/repos/nicesky.git']
+}
+
+file { '/home/git/repos/server-anastasia-puppet.git':
+    ensure => directory,
+    owner => 'git',
+    require => User['git'],
+}
+
+exec { 'init server-anastasia-puppet repo':
+    command => 'git init --bare',
+    cwd => '/home/git/repos/server-anastasia-puppet.git',
+    creates => '/home/git/repos/server-anastasia-puppet.git/config',
+    user => 'git',
+    require => File['/home/git/repos/server-anastasia-puppet.git']
 }
