@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=$( find . -type f | grep \.pp$ )
+files=$( find modules/{bash,developers,git} -type f | grep \.pp$ )
 exit_status=0
 
 for f in $files; do
