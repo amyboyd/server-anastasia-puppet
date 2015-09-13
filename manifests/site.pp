@@ -12,3 +12,5 @@ bash::aliases { 'bash aliases for root':
 bash::aliases { 'bash aliases for git user':
     file => '/home/git/.bash_aliases'
 }
+
+include developers
